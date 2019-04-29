@@ -1,18 +1,31 @@
 <html>
-  <head></head>
-  
+  <head>
+    <script src="p5/p5.min.js"></script>
+    <script src="p5/p5.geolocation-master/p5.geolocation.js"></script>
+  </head>
   <body>
+    
+    <p id="gotgeo"></p>
+    <p id="lat"></p>
+    <p id="long"></p>
+    
+    
     <script>
       
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          var mydata = JSON.parse(this.responseText);
-          window.alert(mydata.bento[1].price);
-        }
+      function setup(){
+	      if(geoCheck() == true){
+		      document.getElementById('gotgeo').innerHTML = "Yes";
+	      }
+	      else{
+		      document.getElementById('gotgeo').innerHTML = "No";
+	      }
+	      getCurrentPosition(doThisOnLocation);
       }
-      xmlhttp.open("Get", "bento.json", true);
-      xmlhttp.send();
+      
+      function doThisOnLocation(position) {
+        document.getElementById('lat').innerHTML = "Lat:" + position.latitude.toFixed(4);
+        document.getElementById('long').innerHTML = "Long:" + position.longitude.toFixed(4);
+      }
     </script>
   </body>
 </html>
