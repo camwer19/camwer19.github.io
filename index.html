@@ -5,6 +5,7 @@
   </head>
   <body>
     
+    <h1 id="active"></h1>
     <h1 id="locateMe"></h1>
     <h1 id="showLat"></h1>
     <h1 id="showLong"></h1>
@@ -20,10 +21,10 @@
       
       function setup() {
         if (geoCheck() == true) {
-          $.getElementById('locateMe').innerHTML = "Yes.";
+          $.getElementById('active').innerHTML = "Yes.";
         }
         else {
-          $.getElementById('locateMe').innerHTML = "No.";
+          $.getElementById('active').innerHTML = "No.";
         }
         intervalCurrentPosition(positionPing,1000);
         
@@ -35,9 +36,12 @@
         $.getElementById('showLat').innerHTML = "Lat: " + myLat;
         $.getElementById('showLong').innerHTML = "Long: " + myLong;
         distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
-        $.getElementById('distance').innerHTML = distance.toFixed(2);
-        if (distance < 0.1) {
+        $.getElementById('distance').innerHTML = distance.toFixed(5);
+        if (distance < 0.001) {
           $.getElementById('locateMe').innerHTML = "Found."
+        }
+        else {
+          $.getElementById('locateMe').innerHTML = "Searching."
         }
       }
       
