@@ -5,7 +5,7 @@
   </head>
   <body>
     
-    <p id="locateMe"></p>
+    <h1 id="locateMe"></h1>
     <h1 id="distance"></h1>
     
     <script>
@@ -31,7 +31,10 @@
         myLat = position.latitude;
         myLong = position.longitude;
         distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
-        $.getElementById('distance').innerHTML = distance;
+        $.getElementById('distance').innerHTML = distance.toFixed(2);
+        if (distance < 0.5) {
+          $.getElementById('locateMe').innerHTML = "Found."
+        }
       }
       
       
