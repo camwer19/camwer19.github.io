@@ -27,7 +27,7 @@
           $.getElementById('active').innerHTML = "No.";
         }
         intervalCurrentPosition(positionPing,1000);
-        
+        enableHighAccuracy: true;
       }
       
       function positionPing(position) {
@@ -37,7 +37,7 @@
         $.getElementById('showLong').innerHTML = "Long: " + myLong;
         distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
         $.getElementById('distance').innerHTML = distance.toFixed(5);
-        if (distance < 0.001) {
+        if (distance < 0.008) {
           $.getElementById('locateMe').innerHTML = "Found."
         }
         else {
