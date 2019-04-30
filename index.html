@@ -5,27 +5,36 @@
   </head>
   <body>
     
-    <p id="gotgeo"></p>
-    <p id="lat"></p>
-    <p id="long"></p>
-    
+    <p id="locateMe"></p>
+    <h1 id="distance"></h1>
     
     <script>
+      var $ = document;
+      var distance;
+      var myLat;
+      var myLong;
+      var treasureLat = 21.310222;
+      var treasureLong = -157.837545;
       
-      function setup(){
-	      if(geoCheck() == true){
-		      document.getElementById('gotgeo').innerHTML = "Yes";
-	      }
-	      else{
-		      document.getElementById('gotgeo').innerHTML = "No";
-	      }
-	      getCurrentPosition(doThisOnLocation);
+      function setup() {
+        if (geocheck == true) {
+          $.getElementById('locateMe').innerHTML = "Yes.";
+          distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
+        }
+        else {
+          $.getElementById('locateMe').innerHTML = "No.";
+        }
+        intervalCurrentPosition(positionPing,1000);
+        
       }
       
-      function doThisOnLocation(position) {
-        document.getElementById('lat').innerHTML = "Lat:" + position.latitude.toFixed(4);
-        document.getElementById('long').innerHTML = "Long:" + position.longitude.toFixed(4);
+      function positionPing(position) {
+        myLat = position.latitude;
+        myLong = position.longitude;
+        $,getElementById('distance').innerHTML = distance;
       }
+      
+      
     </script>
   </body>
 </html>
