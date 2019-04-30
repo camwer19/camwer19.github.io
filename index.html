@@ -17,7 +17,7 @@
       var treasureLong = -157.837545;
       
       function setup() {
-        if (geocheck == true) {
+        if (geoCheck() == true) {
           $.getElementById('locateMe').innerHTML = "Yes.";
         }
         else {
