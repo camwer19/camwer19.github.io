@@ -19,7 +19,6 @@
       function setup() {
         if (geocheck == true) {
           $.getElementById('locateMe').innerHTML = "Yes.";
-          distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
         }
         else {
           $.getElementById('locateMe').innerHTML = "No.";
@@ -31,7 +30,8 @@
       function positionPing(position) {
         myLat = position.latitude;
         myLong = position.longitude;
-        $,getElementById('distance').innerHTML = distance;
+        distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
+        $.getElementById('distance').innerHTML = distance;
       }
       
       
