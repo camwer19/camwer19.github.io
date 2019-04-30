@@ -36,7 +36,7 @@
         $.getElementById('showLong').innerHTML = "Long: " + myLong;
         distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
         $.getElementById('distance').innerHTML = distance.toFixed(2);
-        if (distance < 0.5) {
+        if (distance < 0.1) {
           $.getElementById('locateMe').innerHTML = "Found."
         }
       }
