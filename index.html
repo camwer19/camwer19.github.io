@@ -21,10 +21,10 @@
       
       function setup() {
         if (geoCheck() == true) {
-          $.getElementById('active').innerHTML = "Yes.";
+          $.getElementById('active').innerHTML = "Online.";
         }
         else {
-          $.getElementById('active').innerHTML = "No.";
+          $.getElementById('active').innerHTML = "Offline.";
         }
         intervalCurrentPosition(positionPing,1000);
         enableHighAccuracy: true;
