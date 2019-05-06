@@ -5,8 +5,14 @@
   <body>
     
     <h1 id="ax"></h1>
+    <h1 id="rx"></h1>
+    
     
     <script>
+      var ax;
+      var axHigh = 0;
+      var rx;
+      
       
       function setup() {
         createCanvas(window.innerWidth,window.innerHeight);
@@ -14,7 +20,12 @@
       
       function draw() {
         ax = accelerationX;
-        document.getElementById('ax').innerHTML = "X accel = " + ax;
+        if (ax < axHigh) {
+          axHigh = ax;
+          document.getElementById('ax').innerHTML = "X accel = " + axHigh;
+        }
+        rx = rotationX;
+        document.getElementById('rx').innerHTML = "X rotation =" + rx;
       }
     </script>
   </body>
