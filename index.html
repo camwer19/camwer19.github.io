@@ -1,51 +1,21 @@
 <html>
   <head>
-    <script src="p5.min.js"></script>
-    <script src="p5.geolocation.js"></script>
+    
   </head>
   <body>
     
-    <h1 id="active"></h1>
-    <h1 id="locateMe"></h1>
-    <h1 id="showLat"></h1>
-    <h1 id="showLong"></h1>
-    <h1 id="distance"></h1>
+    <h1 id="ax"></h1>
     
     <script>
-      var $ = document;
-      var distance;
-      var myLat;
-      var myLong;
-      var treasureLat = 21.310222;
-      var treasureLong = -157.837545;
       
       function setup() {
-        if (geoCheck() == true) {
-          $.getElementById('active').innerHTML = "Online.";
-        }
-        else {
-          $.getElementById('active').innerHTML = "Offline.";
-        }
-        intervalCurrentPosition(positionPing,1000);
-        enableHighAccuracy: true;
+        createCanvas(window.innerWidth,window.innerHeight);
       }
       
-      function positionPing(position) {
-        myLat = position.latitude;
-        myLong = position.longitude;
-        $.getElementById('showLat').innerHTML = "Lat: " + myLat;
-        $.getElementById('showLong').innerHTML = "Long: " + myLong;
-        distance = calcGeoDistance(myLat,myLong, treasureLat,treasureLong, "mi");
-        $.getElementById('distance').innerHTML = distance.toFixed(5);
-        if (distance < 0.008) {
-          $.getElementById('locateMe').innerHTML = "Found."
-        }
-        else {
-          $.getElementById('locateMe').innerHTML = "Searching."
-        }
+      function draw() {
+        ax = accelerationX;
+        document.getElementById('ax').innerHTML = "X accel = " + ax;
       }
-      
-      
     </script>
   </body>
 </html>
