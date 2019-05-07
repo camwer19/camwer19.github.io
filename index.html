@@ -6,7 +6,7 @@
     
     <h1 id="ax"></h1>
     <h1 id="rx"></h1>
-    
+    <h1 id="help"></h1>
     
     <script>
       var ax;
@@ -26,7 +26,19 @@
         }
         rx = rotationX;
         document.getElementById('rx').innerHTML = "X rotation = " + rx;
+        
+        if (rx > 4) {
+          document.body.style.backgroundColor = "yellow";
+        }
+        if (rx < 1) {
+          document.body.style.backgroundColor = "red";
+        }
+        if (rx > 9) {
+          document.body.style.backgroundColor = "green";
+        }
       }
+      
+      
     </script>
   </body>
 </html>
