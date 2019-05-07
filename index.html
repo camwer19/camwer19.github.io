@@ -12,14 +12,14 @@
       var ax;
       var axHigh = 0;
       var rx;
-      
+      var value = accelerationX;
       
       function setup() {
         createCanvas(window.innerWidth,window.innerHeight);
       }
       
       function draw() {
-        ax = accelerationX;
+        /*ax = accelerationX;
         if (ax < axHigh) {
           axHigh = ax;
           document.getElementById('ax').innerHTML = "X accel = " + axHigh;
@@ -35,7 +35,18 @@
         }
         if (rx > 60) {
           document.body.style.backgroundColor = "green";
+        }*/
+      }
+      
+      function deviceMoved() {
+        value = value + 1;
+        if (value % 2 == 0) {
+          document.body.style.backgroundColor = "red";
         }
+        else {
+          document.body.style.backgroundColor = "white";
+        }
+        console.log(value);
       }
       
       
