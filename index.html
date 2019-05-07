@@ -4,51 +4,27 @@
   </head>
   <body>
     
-    <h1 id="ax"></h1>
     <h1 id="rx"></h1>
-    <h1 id="help"></h1>
+    <h1 id="ry"></h1>
+    <h1 id="rz"></h1>
     
     <script>
-      var ax;
-      var axHigh = 0;
-      var rx;
-      var value = accelerationX;
+      var rz = 0;
+      var rx = 0;
+      var ry = 0;
       
       function setup() {
         createCanvas(window.innerWidth,window.innerHeight);
       }
       
       function draw() {
-        /*ax = accelerationX;
-        if (ax < axHigh) {
-          axHigh = ax;
-          document.getElementById('ax').innerHTML = "X accel = " + axHigh;
-        }
+        rz = rotationZ;
+        document.getElementById('rz').innerHTML = "Z = " + rz;
         rx = rotationX;
-        document.getElementById('rx').innerHTML = "X rotation = " + rx;
-        
-        if (rx > 0) {
-          document.body.style.backgroundColor = "yellow";
-        }
-        if (rx < 30) {
-          document.body.style.backgroundColor = "red";
-        }
-        if (rx > 60) {
-          document.body.style.backgroundColor = "green";
-        }*/
+        document.getElementById('rx').innerHTML = "X = " + rx;
+        ry = rotationY;
+        document.getElementById('ry').innerHTML = "Y = " + ry;
       }
-      
-      function deviceMoved() {
-        value = value + 1;
-        if (value % 2 == 0) {
-          document.body.style.backgroundColor = "red";
-        }
-        else {
-          document.body.style.backgroundColor = "white";
-        }
-        console.log(value);
-      }
-      
       
     </script>
   </body>
